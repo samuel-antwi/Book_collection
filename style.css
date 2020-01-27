@@ -1,0 +1,39 @@
+.container {
+  max-width: 700px;
+}
+
+.l-heading {
+  color: gray;
+}
+
+.success, .error{
+  color: white;
+  margin: 5px 0 15px 0;
+  padding: 5px;
+  text-align: center;
+}
+
+.d-none {
+  display: none;
+}
+
+.success {
+  background: green;
+}
+
+.error{
+  background: red;
+}
+
+.btn-danger{
+  background: #EA2027;
+  margin-top: 10px;
+}
+
+.btn-danger:hover{
+  background: red;
+}
+
+.d-none {
+  display: none;
+}
