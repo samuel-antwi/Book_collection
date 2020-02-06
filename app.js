@@ -3,7 +3,8 @@ const bookList = document.querySelector('#book-list');
 const table = document.querySelector('table');
 const errorMessage = document.querySelector('.error-message');
 const successMessage = document.querySelector('.success-message');
-const claerButt = document.querySelector('#clear-button');
+const clearButt = document.querySelector('.clear-button');
+
 
 
 
@@ -45,13 +46,11 @@ class UI extends Book{
       <td><a class="delete-book" href="#">X</a></td>
      `;
      bookList.appendChild(row);
-     if(book.title) {
-       claerButt.classList.remove('class', 'd-none');
-     }
   }
-
   deleteBook(e) {
-    e.target.parentElement.parentElement.remove();
+      const deleteItem = e.target.parentElement.parentElement
+      deleteItem.remove();
+    
   }
 
   clearAllBooks() {
@@ -90,7 +89,6 @@ form.addEventListener('submit', function(e) {
 
 // Deleting a Book from the UI.
 table.addEventListener('click', e => {
-  console.log(e.target.classList)
   const ui = new UI();
   if(e.target.classList.contains('delete-book')){
     ui.deleteBook(e);
@@ -98,11 +96,12 @@ table.addEventListener('click', e => {
 });
 
 // Clear All Books from UI
-claerButt.addEventListener('click', () => {
+clearButt.addEventListener('click', () => {
+  const title = document.getElementById('title').value;
+  const book = new Book(title, author, isbn, year);
   const ui = new UI();
-  if(confirm('Are you sure you want to clear all books?')) {
-    ui.clearAllBooks();
-    claerButt.classList.add('class', 'd-none');
-  }
+    if(confirm('Are you sure you want to clear all books?')) {
+      ui.clearAllBooks();
+  } 
 });
 
